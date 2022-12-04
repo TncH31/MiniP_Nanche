@@ -32,5 +32,79 @@ public abstract class ObjetPlateau {
 		}
 		return nouveau;
 	}
-	/// Autres fonctions à réaliser ici...
+	/**
+	 * Cette methode sert à afficher
+	 * l'élément graphique - qui
+	 * le représente dans le jeu
+	 * **/
+	public abstract char afficher ();
+	/**
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est vide ou ne l'est pas !
+			**/
+	public abstract boolean estVide();
+	/**
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est Marchable ou ne l'est pas !
+			**/
+	public abstract boolean estMarchable();
+	/**
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est Poussable ou ne l'est pas !
+			**/
+	public abstract boolean estPoussable() ;
+	/**
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est Glissant ou ne l'est pas !
+			**/
+	public abstract boolean estGlissant();
+
+	/**
+	 * ICI, ON TROUVE UNE AUTRE SOLUTION QUI NOUS PERMETTREZ, D'AILLEURS, D'ALLÉGER NOS CLASSES FILLES.
+	 * CELA SE FERAIT EN NE REDÉFINISSANT PAS LA METHODE estVide(), PAR EXEMPLE, POUR TOUTES LES CLASSES FILLES
+	 * SAUF 'Vide' ET AINSI DE SUITE !
+	 * OR, SI CETTE CLASSE EST ABSTRAITE C'EST JUSTEMENT POUR FAIRE UN CODE PROPRE
+	 * ET COHERENT. LES OBJETS DU PLATEAU N'ONT PAS TOUS LES MEMES CARACTERISTIQUES DONC NOUS CREONS
+	 * DES METHODES ABSTRAITES POUR CELLES-CI (BOOLEAN).
+	 *
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est vide ou ne l'est pas !
+	 *
+	public boolean estVide(){
+
+		return false;
+	}
+
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est Marchable ou ne l'est pas !
+	 *
+	public boolean estMarchable() {
+
+		return true;
+	}
+
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est Poussable ou ne l'est pas !
+	 *
+	public boolean estPoussable() {
+
+		return false;
+	}
+
+	 * Cette methode sert indiquer
+	 * que tout objet de type ObjetPlateau
+	 * est Glissant ou ne l'est pas !
+	 *
+	public boolean estGlissant() {
+
+		return false;
+	}
+	 **/
 }
