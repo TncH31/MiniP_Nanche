@@ -4,7 +4,6 @@ import fr.rodez3il.a2022.mrmatt.sources.objets.ObjetPlateau;
 import fr.rodez3il.a2022.mrmatt.sources.objets.Rocher;
 
 public class Niveau {
-	
 	// Les objets sur le plateau du niveau
 	private ObjetPlateau[][] plateau;
 	// Position du joueur
@@ -15,11 +14,10 @@ public class Niveau {
   
 	/**
 	 * Constructeur public : crée un niveau depuis un fichier.
-	 * @param chemin .....
-	 * @author .............
-	 */
+	 * @param chemin
+	 * @author Nanche Thibaud
+	 **/
 	public Niveau(String chemin) {
-
 		chargerNiveau(chemin);
 	}
 
@@ -27,10 +25,15 @@ public class Niveau {
 	}
 
 	/**
-	 * Javadoc à réaliser...
+	 * Cette classe permet d'échanger une position d'un objet sourceX, sourceY
+	 * avec un objet en position destinationX, destinationY.
+	 * @param (int sourceX, int sourceY, int destinationX, int destinationY)
+	 * @autor Nanche Thibaud
 	 */
 	private void echanger(int sourceX, int sourceY, int destinationX, int destinationY) {
-    // ........
+		ObjetPlateau o = this.plateau[sourceX][sourceY];
+		this.plateau[sourceX][sourceY] = this.plateau[destinationX][destinationY];
+		this.plateau[destinationX][destinationY] = o;
 	}
 
 	/**

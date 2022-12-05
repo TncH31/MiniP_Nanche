@@ -9,6 +9,7 @@ public class Vide extends ObjetPlateau {
      * Cette methode sert à afficher
      * l'élément graphique 'espace' qui
      * le représente dans le jeu
+     * @autor Nanche Thibaud
      * **/
     @Override
     public char afficher (){
@@ -19,6 +20,7 @@ public class Vide extends ObjetPlateau {
      * Cette methode sert indiquer
      * que tout objet de type Vide
      * est vide !
+     * @autor Nanche Thibaud
      * **/
     @Override
     public boolean estVide(){
@@ -29,6 +31,7 @@ public class Vide extends ObjetPlateau {
      * Cette methode sert indiquer
      * que tout objet de type Vide
      * est Marchable !
+     * @autor Nanche Thibaud
      * **/
     @Override
     public boolean estMarchable() {
@@ -39,6 +42,7 @@ public class Vide extends ObjetPlateau {
      * Cette methode sert indiquer
      * que tout objet de type Vide
      * n'est pas Poussable !
+     * @autor Nanche Thibaud
      * **/
     @Override
     public boolean estPoussable() {
@@ -49,6 +53,7 @@ public class Vide extends ObjetPlateau {
      * Cette methode sert indiquer
      * que tout objet de type Vide
      * n'est pas Glissant !
+     * @autor Nanche Thibaud
      * **/
     @Override
     public boolean estGlissant() {

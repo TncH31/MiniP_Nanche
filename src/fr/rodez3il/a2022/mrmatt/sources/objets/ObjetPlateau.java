@@ -36,30 +36,35 @@ public abstract class ObjetPlateau {
 	 * Cette methode sert à afficher
 	 * l'élément graphique - qui
 	 * le représente dans le jeu
+	 * @autor Nanche Thibaud
 	 * **/
 	public abstract char afficher ();
 	/**
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est vide ou ne l'est pas !
+	 * @autor Nanche Thibaud
 			**/
 	public abstract boolean estVide();
 	/**
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est Marchable ou ne l'est pas !
+	 * @autor Nanche Thibaud
 			**/
 	public abstract boolean estMarchable();
 	/**
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est Poussable ou ne l'est pas !
+	 * @autor Nanche Thibaud
 			**/
 	public abstract boolean estPoussable() ;
 	/**
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est Glissant ou ne l'est pas !
+	 * @autor Nanche Thibaud
 			**/
 	public abstract boolean estGlissant();
 
@@ -70,10 +75,12 @@ public abstract class ObjetPlateau {
 	 * OR, SI CETTE CLASSE EST ABSTRAITE C'EST JUSTEMENT POUR FAIRE UN CODE PROPRE
 	 * ET COHERENT. LES OBJETS DU PLATEAU N'ONT PAS TOUS LES MEMES CARACTERISTIQUES DONC NOUS CREONS
 	 * DES METHODES ABSTRAITES POUR CELLES-CI (BOOLEAN).
-	 *
+	 *@autor Nanche Thibaud
+	 * -----------------------------------------------------
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est vide ou ne l'est pas !
+	 * @autor Nanche Thibaud
 	 *
 	public boolean estVide(){
 
@@ -83,6 +90,7 @@ public abstract class ObjetPlateau {
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est Marchable ou ne l'est pas !
+	 * @autor Nanche Thibaud
 	 *
 	public boolean estMarchable() {
 
@@ -92,6 +100,7 @@ public abstract class ObjetPlateau {
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est Poussable ou ne l'est pas !
+	 * @autor Nanche Thibaud
 	 *
 	public boolean estPoussable() {
 
@@ -101,6 +110,7 @@ public abstract class ObjetPlateau {
 	 * Cette methode sert indiquer
 	 * que tout objet de type ObjetPlateau
 	 * est Glissant ou ne l'est pas !
+	 * @autor Nanche Thibaud
 	 *
 	public boolean estGlissant() {
 

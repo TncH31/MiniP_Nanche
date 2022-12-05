@@ -41,7 +41,7 @@ public class Jeu {
 	}
 
 	/**
-	 * Point d'entrée principal du programme.
+	 * Point d'entrée principale du programme.
 	 * 
 	 * @param args
 	 */
