@@ -2,7 +2,7 @@ package fr.rodez3il.a2022.mrmatt.sources;
 
 import fr.rodez3il.a2022.mrmatt.sources.objets.ObjetPlateau;
 import fr.rodez3il.a2022.mrmatt.sources.objets.Rocher;
-
+import fr.rodez3il.a2022.mrmatt.sources.Utils;
 public class Niveau {
 	// Les objets sur le plateau du niveau
 	private ObjetPlateau[][] plateau;
@@ -18,16 +18,39 @@ public class Niveau {
 	 * @author Nanche Thibaud
 	 **/
 	public Niveau(String chemin) {
+
 		chargerNiveau(chemin);
 	}
 
 	private void chargerNiveau(String chemin) {
+		String StringLeopard = Utils.lireFichier(chemin);
+		String[] pseudoTableau = StringLeopard.split("\n");
+		int horizontal = Integer.valueOf(pseudoTableau[0]);
+		int vertical = Integer.valueOf(pseudoTableau[1]);
+		plateau = new ObjetPlateau[horizontal][vertical];
+
+		/**Ici, On créait un String StringLeopard qui récupère sous forme
+		 * de caractères la map indiquer par le chemin en paramètre de notre fonction [lireFichier(chemin)]
+		 * qui permet de la 'traduire' en caractères.
+		 *
+		 * On créait un tableau 'pseudoTableau' qui récupère chaque ligne de mon 'StringLeopard'
+		 *
+		 * On parcourt le 'pseudoTableau' sa 1ère ligne = [0] et on attribue
+		 * à horizontal la première ligne pseudoTableau[0] = (31).
+		 *
+		 * On parcourt le 'pseudoTableau' sa 2ème ligne = [1] et on attribue
+		 * à vertical la deuxième ligne pseudoTableau[1] = (18).
+		 *
+		 * Enfin, nous créons le tableau plateau étant une matrice qui est un objet de type ObjetPlateau dans lequel
+		 * on détermine la limite de notre premier tableau [31] et du deuxième [18].
+		 * **/
+
 	}
 
 	/**
 	 * Cette classe permet d'échanger une position d'un objet sourceX, sourceY
 	 * avec un objet en position destinationX, destinationY.
-	 * @param (int sourceX, int sourceY, int destinationX, int destinationY)
+	 * @param (sourceX, sourceY, destinationX, destinationY) --> Integer
 	 * @autor Nanche Thibaud
 	 */
 	private void echanger(int sourceX, int sourceY, int destinationX, int destinationY) {
