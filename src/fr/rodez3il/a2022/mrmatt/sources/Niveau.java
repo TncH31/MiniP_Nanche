@@ -1,8 +1,8 @@
 package fr.rodez3il.a2022.mrmatt.sources;
 
 import fr.rodez3il.a2022.mrmatt.sources.objets.ObjetPlateau;
-import fr.rodez3il.a2022.mrmatt.sources.objets.Rocher;
-import fr.rodez3il.a2022.mrmatt.sources.Utils;
+import fr.rodez3il.a2022.mrmatt.sources.objets.*;
+
 public class Niveau {
 	// Les objets sur le plateau du niveau
 	private ObjetPlateau[][] plateau;
@@ -11,7 +11,8 @@ public class Niveau {
 	private int joueurY;
 	
   // Autres attributs que vous jugerez nécessaires...
-  
+  	private int totalPomme = 0;
+
 	/**
 	 * Constructeur public : crée un niveau depuis un fichier.
 	 * @param chemin
@@ -19,16 +20,11 @@ public class Niveau {
 	 **/
 	public Niveau(String chemin) {
 
-		chargerNiveau(chemin);
-	}
-
-	private void chargerNiveau(String chemin) {
 		String StringLeopard = Utils.lireFichier(chemin);
 		String[] pseudoTableau = StringLeopard.split("\n");
 		int horizontal = Integer.valueOf(pseudoTableau[0]);
 		int vertical = Integer.valueOf(pseudoTableau[1]);
 		plateau = new ObjetPlateau[horizontal][vertical];
-
 		/**Ici, On créait un String StringLeopard qui récupère sous forme
 		 * de caractères la map indiquer par le chemin en paramètre de notre fonction [lireFichier(chemin)]
 		 * qui permet de la 'traduire' en caractères.
@@ -44,7 +40,30 @@ public class Niveau {
 		 * Enfin, nous créons le tableau plateau étant une matrice qui est un objet de type ObjetPlateau dans lequel
 		 * on détermine la limite de notre premier tableau [31] et du deuxième [18].
 		 * **/
-
+		for (int pourMaLigne = 2; pourMaLigne < pseudoTableau.length; ++pourMaLigne) {
+			for (int pourMaColonne = 0; pourMaColonne < pseudoTableau[pourMaLigne].length(); ++pourMaColonne) {
+				ObjetPlateau symbole = ObjetPlateau.depuisCaractere(pseudoTableau[pourMaLigne].charAt(pourMaColonne));
+				if (symbole.afficher() == '+') {
+					++totalPomme;
+				}
+				if (symbole.afficher() == 'H') {
+					joueurX = pourMaColonne;
+					joueurY = pourMaLigne;
+				}
+			}
+		}
+		/**
+		 * Dans cette double boucle fort on va chercher à créer une instance de type ObjetPlateau à laquelle on
+		 * attribuera une position X(Colonne) et Y(Ligne). Pour se faire on créait une première boucle qui commence
+		 * à 2, car les deux premières lignes du tableau ne nous intéresse pas (Cette valeur nous servira dans la
+		 * deuxième boucle, je vous expliquerai). Dans la deuxième boucle, on va parcourir chaque symbole de notre ligne
+		 * que l'on délimitera par sa longueur. On réutilise d'ailleurs la variable PourMaLigne utilisée précédemment
+		 * pour parcourir chaque ligne sauf les deux premières.
+		 * En effet, au minimum, on commencera par la 3ème ligne, car pseudoTableau[2] = 3ème ligne ;)
+		 * Par la suite on créait l'objet en lui attribuant le caractère parcouru.
+		 * Si c'est un char = '+' alors on incrémente le totalPomme par 1.
+		 * Si c'est un char = 'H' ainsi on renseigne la position du joueur.
+		 * **/
 	}
 
 	/**
