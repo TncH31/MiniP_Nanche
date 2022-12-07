@@ -22,8 +22,12 @@ public class Niveau {
 
 		String StringLeopard = Utils.lireFichier(chemin);
 		String[] pseudoTableau = StringLeopard.split("\n");
-		int horizontal = Integer.valueOf(pseudoTableau[0]);
-		int vertical = Integer.valueOf(pseudoTableau[1]);
+		System.out.println(pseudoTableau[0]);
+		String horizontalString = pseudoTableau[0].charAt(0)+""+pseudoTableau[0].charAt(1);
+		String verticalString = pseudoTableau[1].charAt(0)+""+pseudoTableau[1].charAt(1);
+		int horizontal = Integer.valueOf(horizontalString);
+
+		int vertical =new Integer(verticalString);
 		plateau = new ObjetPlateau[horizontal][vertical];
 		/**Ici, On créait un String StringLeopard qui récupère sous forme
 		 * de caractères la map indiquer par le chemin en paramètre de notre fonction [lireFichier(chemin)]
@@ -41,10 +45,14 @@ public class Niveau {
 		 * on détermine la limite de notre premier tableau [31] et du deuxième [18].
 		 * **/
 		for (int pourMaLigne = 2; pourMaLigne < pseudoTableau.length; ++pourMaLigne) {
-			for (int pourMaColonne = 0; pourMaColonne < pseudoTableau[pourMaLigne].length(); ++pourMaColonne) {
+			for (int pourMaColonne = 0; pourMaColonne < pseudoTableau[0].length(); ++pourMaColonne) {
 				ObjetPlateau symbole = ObjetPlateau.depuisCaractere(pseudoTableau[pourMaLigne].charAt(pourMaColonne));
+				System.out.println(symbole.afficher());
+				this.plateau[pourMaLigne - 2][pourMaColonne] = symbole;
+
 				if (symbole.afficher() == '+') {
-					++totalPomme;
+					totalPomme+=1;
+					System.out.println(totalPomme);
 				}
 				if (symbole.afficher() == 'H') {
 					joueurX = pourMaColonne;
@@ -52,6 +60,9 @@ public class Niveau {
 				}
 			}
 		}
+		System.out.println("nikzbi");
+		System.out.println(this.plateau[0][0].afficher());
+
 		/**
 		 * Dans cette double boucle fort on va chercher à créer une instance de type ObjetPlateau à laquelle on
 		 * attribuera une position X(Colonne) et Y(Ligne). Pour se faire on créait une première boucle qui commence
@@ -83,7 +94,13 @@ public class Niveau {
 	 * ................
 	 */
 	public void afficher() {
-    // TODO
+		System.out.println("hey"+plateau[0][3].afficher());
+    for (int i = 0; i < plateau.length; i++){
+		System.out.print("hey");
+		for(int j = 0; j < plateau[i].length; j++){
+			System.out.print(plateau[i][j].afficher());
+		}
+	}
 	}
 
   // TODO : patron visiteur du Rocher...
@@ -104,7 +121,7 @@ public class Niveau {
   // Illustrez les Javadocs manquantes lorsque vous coderez ces méthodes !
   
 	public boolean enCours() {
-		return false;
+		return true;
 	}
 
   // Joue la commande C passée en paramètres
