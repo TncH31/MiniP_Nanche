@@ -7,7 +7,7 @@ public abstract class ObjetPlateau {
 	 * Fabrique des objets
 	 * @param chr le symbole à produire
 	 * @return la classe ObjetPlateau correspondante
-	 * @autor nanche thibaud : Ce n'est pas la solution la plus optimale selon moi.
+	 * @autor Nanche thibaud : Ce n'est pas la solution la plus optimale selon moi.
 	 * En effet, en java le switch est traduit à la compilation par des if, if else ect...
 	 * Pour un code optimal et efficace il faudrait remplacer cela par des if.
 	 */
@@ -70,6 +70,7 @@ public abstract class ObjetPlateau {
 	 * @autor Nanche Thibaud
 			**/
 	public abstract boolean estGlissant();
+
 
 	/**
 	 * ICI, ON TROUVE UNE AUTRE SOLUTION QUI NOUS PERMETTREZ, D'AILLEURS, D'ALLÉGER NOS CLASSES FILLES.

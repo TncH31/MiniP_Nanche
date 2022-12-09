@@ -15,4 +15,6 @@ public enum Commande {
 	QUITTER, // q
 	// Erreur de lecture
 	ERREUR;
+	private Commande() {
+	}
 }

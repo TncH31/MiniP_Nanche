@@ -1,9 +1,16 @@
 package fr.rodez3il.a2022.mrmatt.sources.objets;
 
 public class Rocher extends ObjetPlateau {
-
+    private EtatRocher etat;
     public Rocher(){
         super();
+    }
+    public void setEtatRocher(EtatRocher etat) {
+        this.etat = etat;
+    }
+
+    public EtatRocher getEtatRocher() {
+        return this.etat;
     }
     /**
      * Cette methode sert à afficher
