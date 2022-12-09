@@ -40,4 +40,4 @@ Je n'ai d'ailleurs pas fini le jeu même si l'aide de mes camarades n'a pas manq
 Je déteste être dans l'incompréhension et j'ai appris beaucoup de choses.
 Je n'ai pas décidé de finir le projet sans le comprendre, même avec votre correction, cela ne m'intéresse pas.
 
-Ce fût une bonne expérience !
+Ce fût une bonne expérience !!!
