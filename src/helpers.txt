@@ -1,6 +1,0 @@
-Enumeration des personnes qui ont pu m'aider durant le projet :
-
-Julien Adami --> Initialisation du projet sur IntelliJJ
-             --> Prise en main de IntelliJJ
-
-Alexis Ravayrol --> Aide au niveau de la methode échanger().

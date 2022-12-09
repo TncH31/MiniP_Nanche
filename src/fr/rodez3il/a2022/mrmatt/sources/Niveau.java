@@ -15,10 +15,10 @@ public class Niveau {
 	private boolean finito;
 
 
-
 	/**
 	 * Constructeur public : crée un niveau depuis un fichier, ici, french-garden.
 	 * Tout cela se fera grâce à la méthode chargerNiveau().
+	 *
 	 * @param chemin
 	 * @author Nanche Thibaud
 	 **/
@@ -52,11 +52,11 @@ public class Niveau {
 		 * on détermine la limite de notre premier tableau [31] et du deuxième [18] récupérés ultérieurement grâce
 		 * aux variables tailleVerticale et tailleHorizontale.
 		 * **/
-		int compteur =0;
-		int x=0;
-		for(String charactGame : pseudoTableau){
-			if (compteur>1 && !charactGame.startsWith(" ")){
-				tableauFinal[x]=charactGame;
+		int compteur = 0;
+		int x = 0;
+		for (String charactGame : pseudoTableau) {
+			if (compteur > 1 && !charactGame.startsWith(" ")) {
+				tableauFinal[x] = charactGame;
 				x++;
 			}
 			compteur++;
@@ -65,8 +65,8 @@ public class Niveau {
 		 * D'Où notre tableauFinal qui n'est rien d'autre que notre tableau sans les deux premières lignes.
 		 * @autor Julien Adami
 		 * */
-		for(int pourMaLigne = 0; pourMaLigne < this.tailleHorizontale; ++pourMaLigne) { 
-			for(int pourMaColonne = 0; pourMaColonne < this.tailleVerticale; ++pourMaColonne) {
+		for (int pourMaLigne = 0; pourMaLigne < this.tailleHorizontale; ++pourMaLigne) {
+			for (int pourMaColonne = 0; pourMaColonne < this.tailleVerticale; ++pourMaColonne) {
 				ObjetPlateau symbole = ObjetPlateau.depuisCaractere(tableauFinal[pourMaLigne].charAt(pourMaColonne));
 				this.plateau[pourMaColonne][pourMaLigne] = symbole;
 				if (symbole.afficher() == '+') {
@@ -91,7 +91,8 @@ public class Niveau {
 	/**
 	 * Cette classe permet d'échanger une position d'un objet sourceX, sourceY
 	 * avec un objet en position destinationX, destinationY.
-	 * @param (sourceX, sourceY, destinationX, destinationY) --> Integer
+	 *
+	 * @param (sourceX,sourceY,destinationX,destinationY) --> Integer
 	 * @autor Nanche Thibaud
 	 */
 	private void echanger(int sourceX, int sourceY, int destinationX, int destinationY) {
@@ -102,36 +103,43 @@ public class Niveau {
 
 	/**
 	 * Produit une sortie du niveau sur la sortie standard.
+	 *
 	 * @autor Nanche Thibaud
 	 */
 	public void afficher() {
-		for(int numeroLigne = 0; numeroLigne < this.tailleHorizontale; ++numeroLigne) {
+		for (int numeroLigne = 0; numeroLigne < this.tailleHorizontale; ++numeroLigne) {
 			for (int numeroColonne = 0; numeroColonne < this.tailleVerticale; ++numeroColonne) {
 				System.out.print(this.plateau[numeroColonne][numeroLigne].afficher());
 			}
 			System.out.print("\n");
-		}System.out.println("\nVous avez effectué " + this.totalDeplacement + " déplacements !" + "\n"
-						+ "Il reste " + this.totalPomme + " Pommes !");
-	/**
-	 * Cette methode afficher() est inspiré de notre méthode chargerNiveau(). On voit , ici, que l'on reprend
-	 * les deux boucles for vu précédemment.
-	 * Cela nous sert, de nouveau, à parcourir notre niveau. Mais cette fois à chaque passage, on affiche le symbole
-	 * récupéré.
-	 * Ensuite, on se sert de nos méthodes codées plus en aval. Celles-ci nous permettent d'afficher le nombre
-	 * de déplacements effectués par notre joueur ainsi que le nombre de pommes à récolter.
-	 * **/
+		}
+		System.out.println("\nVous avez effectué " + this.totalDeplacement + " déplacements !" + "\n"
+				+ "Il reste " + this.totalPomme + " Pommes !");
+		/**
+		 * Cette methode afficher() est inspiré de notre méthode chargerNiveau(). On voit , ici, que l'on reprend
+		 * les deux boucles for vu précédemment.
+		 * Cela nous sert, de nouveau, à parcourir notre niveau. Mais cette fois à chaque passage, on affiche le symbole
+		 * récupéré.
+		 * Ensuite, on se sert de nos méthodes codées plus en aval. Celles-ci nous permettent d'afficher le nombre
+		 * de déplacements effectués par notre joueur ainsi que le nombre de pommes à récolter.
+		 * **/
 
 	}
+
 	/**
 	 * Je ne l'ai pas fini :(
+	 *
 	 * @autor Nanche Thibaud
 	 **/
 	// TODO : patron visiteur du Rocher...
 	public void etatSuivantVisiteur(Rocher r, int x, int y) {
+
 		System.out.println("not finish yet !");
 	}
+
 	/**
 	 * Je ne l'ai pas fini :(
+	 *
 	 * @autor Nanche Thibaud
 	 **/
 	public void etatSuivantVisiteur(Pomme r, int x, int y) {
@@ -141,6 +149,7 @@ public class Niveau {
 	/**
 	 * Calcule l'état suivant du niveau.
 	 * Je ne l'ai pas fini :(
+	 *
 	 * @autor Nanche Thibaud
 	 **/
 	public void etatSuivant() {
@@ -149,56 +158,63 @@ public class Niveau {
 	/**
 	 * Cette methode est initialisé à false pour permettre la compilation
 	 * je ne l'ai pas fini :(
+	 *
 	 * @autor Nanche Thibaud
 	 */
 	public boolean enCours() {
-		return false;
+		if (this.finito) {
+			return false;
+		} else if (this.totalPomme == 0) {
+			return false;
+		}
+		return true;
 	}
 
 	/**
 	 * Cette methode permet d'effectuer un déplacement en fonction
 	 * de l'entré clavier du joueur en vérifiant si le déplacement est réalisable.
+	 *
 	 * @param c de type Commande de type enum
 	 * @autor Nanche Thibaud
 	 */
 	public boolean jouer(Commande c) {
-		switch(c) {
+		switch (c) {
 			case HAUT:
-				if(deplacementPossible(this.joueurX - 1, this.joueurY)) {
+				if (deplacementPossible(this.joueurX - 1, this.joueurY)) {
 					this.deplacer(this.joueurX - 1, this.joueurY);
 					this.totalDeplacement++;
 				}
 				break;
-				/**Ici, on veut aller vers le haut soit notre X - 1
-				 * Incrémentation de totalDeplacement
-				 * **/
+			/**Ici, on veut aller vers le haut soit notre X - 1
+			 * Incrémentation de totalDeplacement
+			 * **/
 			case GAUCHE:
-				if(deplacementPossible(this.joueurX, this.joueurY - 1)) {
+				if (deplacementPossible(this.joueurX, this.joueurY - 1)) {
 					this.deplacer(this.joueurX, this.joueurY - 1);
 					this.totalDeplacement++;
 				}
 				break;
-			    /**Ici, on veut aller vers la gauche soit notre Y - 1
-				 * Incrémentation de totalDeplacement
-				 *  **/
+			/**Ici, on veut aller vers la gauche soit notre Y - 1
+			 * Incrémentation de totalDeplacement
+			 *  **/
 			case BAS:
-				if(deplacementPossible(this.joueurX + 1, this.joueurY)) {
+				if (deplacementPossible(this.joueurX + 1, this.joueurY)) {
 					this.deplacer(this.joueurX + 1, this.joueurY);
 					this.totalDeplacement++;
 				}
 				break;
-				/**Ici, on veut aller vers le bas soit notre X + 1
-				 * Incrémentation de totalDeplacement
-				 * **/
+			/**Ici, on veut aller vers le bas soit notre X + 1
+			 * Incrémentation de totalDeplacement
+			 * **/
 			case DROITE:
-				if(deplacementPossible(this.joueurX, this.joueurY + 1)) {
+				if (deplacementPossible(this.joueurX, this.joueurY + 1)) {
 					this.deplacer(this.joueurX, this.joueurY + 1);
 					this.totalDeplacement++;
 				}
 				break;
-			    /**Ici, on veut aller vers la gauche soit notre Y + 1
-				 * Incrémentation de totalDeplacement
-				 * **/
+			/**Ici, on veut aller vers la gauche soit notre Y + 1
+			 * Incrémentation de totalDeplacement
+			 * **/
 			case ANNULER:
 				// TODO
 				break;
@@ -206,7 +222,7 @@ public class Niveau {
 			case QUITTER:
 				this.finito = true;
 				break;
-			    /**Ici, on met fin à la partie ! **/
+			/**Ici, on met fin à la partie ! **/
 		}
 
 		return true;
@@ -214,6 +230,7 @@ public class Niveau {
 
 	/**
 	 * Cette methode permet de savoir le joueur a gagné ou perdu
+	 *
 	 * @autor Nanche Thibaud
 	 */
 	public void afficherEtatFinal() {
@@ -227,18 +244,22 @@ public class Niveau {
 	/**
 	 * Cette methode est initialisé à false pour permettre la compilation
 	 * je ne l'ai pas fini :(
+	 *
 	 * @autor Nanche Thibaud
 	 */
 	public boolean estIntermediaire() {
 		return false;
 	}
+
 	/**
-	 * je ne l'ai pas fini :(
-	 * @param (dx, dy) (int)
+	 * Permet de réaliser le déplacement effectif du joueur
+	 * @param (dx,dy) (int)
 	 * @autor Nanche Thibaud
 	 */
 	private void deplacer(int dx, int dy) {
-		System.out.println("not finish yet !");
+		this.echanger( this.joueurX,this.joueurY,joueurX + dx,joueurY +dy);
+		this.joueurX += dx;
+		this.joueurY += dy;
 	}
 	/**
 	 * Cette methode permet de regarder si le déplacement demandé est possible
@@ -246,6 +267,12 @@ public class Niveau {
 	 * @autor Nanche Thibaud
 	 */
 	public boolean deplacementPossible(int dx, int dy) {
-		return true;
+		int destinationX = joueurX + dx;
+		int destinationY = joueurY + dy;
+		if (destinationX >= 0 && destinationX < tailleHorizontale && destinationY >= 0
+				&& destinationY < tailleVerticale && this.plateau[destinationX][destinationY].estMarchable()) {
+			return true;
+		}
+		return false;
 	}
 }

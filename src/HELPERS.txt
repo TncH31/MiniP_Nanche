@@ -1,0 +1,8 @@
+Enumeration des personnes qui ont pu m'aider durant le projet :
+
+Julien Adami --> Initialisation du projet sur IntelliJJ
+             --> Prise en main de IntelliJJ
+             --> construteur
+Nicolas Païva --> deplacer
+Alexis Ravayrol --> Beaucoup d'entraide entre nous, étant au foyer et ayant un niveau relativement faible en java
+                    On communiquait asser souvent ce qui nous a permis de comprendre plus vite.
